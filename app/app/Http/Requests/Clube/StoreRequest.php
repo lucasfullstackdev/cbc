@@ -9,7 +9,7 @@ class StoreRequest extends Request
     public function rules()
     {
         return [
-            'clube' => 'required|min:5|max:255',
+            'clube' => 'required|min:5|max:255|unique:clubes,clube',
             'saldo_disponivel' => 'required|gt:0'
         ];
     }
