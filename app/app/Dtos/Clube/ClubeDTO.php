@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Dtos;
+namespace App\Dtos\Clube;
+
+use App\Dtos\DTO;
 
 class ClubeDTO extends DTO
 {

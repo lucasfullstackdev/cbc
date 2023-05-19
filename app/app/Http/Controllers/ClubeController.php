@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Dtos\Clube\UpdateDTO;
-use App\Dtos\ClubeDTO;
-use App\Http\Requests\Clube\StoreRequest;
-use App\Http\Requests\Clube\UpdateRequest;
+use App\Dtos\Clube\{ClubeDTO, UpdateDTO};
+use App\Http\Requests\Clube\{StoreRequest, UpdateRequest};
 use App\Services\ClubeService;
-use Illuminate\Http\Request;
 
 class ClubeController extends Controller
 {
@@ -33,7 +30,6 @@ class ClubeController extends Controller
     {
         return $this->clubeService->find($id)->show();
     }
-
 
     public function update(UpdateRequest $request, int $id)
     {
