@@ -4,8 +4,7 @@ services:
 
     api:
       container_name: php_cbc
-      # image: php-composer:7.4
-      command: sh -c "php artisan key:generate && php artisan && php artisan serve --host=0.0.0.0"
+      command: sh -c "cp .env.example .env && composer storage && composer install && php artisan key:generate && php artisan && php artisan serve --host=0.0.0.0"
       working_dir: /app
       build:
         dockerfile: Dockerfile

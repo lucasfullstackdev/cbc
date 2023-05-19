@@ -45,6 +45,10 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "storage":  [
+            "mkdir storage",
+            "mkdir storage/framework storage/framework/cache storage/framework/sessions storage/framework/testing storage/framework/views"
         ]
     },
     "extra": {
