@@ -8,8 +8,5 @@ use App\Models\Clube;
 class ClubeService extends Service implements IService
 {
     protected string $model = Clube::class;
-
-    public function update()
-    {
-    }
+    
 }

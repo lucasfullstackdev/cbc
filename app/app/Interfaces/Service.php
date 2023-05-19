@@ -2,6 +2,7 @@
 
 namespace App\Interfaces;
 
+use App\Dtos\DTO;
 use Illuminate\Database\Eloquent\Model;
 
 interface Service
@@ -14,5 +15,5 @@ interface Service
 
     public function delete();
 
-    public function update();
+    public function update(DTO $dTO);
 }

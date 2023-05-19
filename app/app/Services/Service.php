@@ -39,6 +39,15 @@ abstract class Service
         }
     }
 
+    public function update(DTO $dto)
+    {
+        try {
+            $this->result->update((array) $dto);
+        } catch (\Throwable $th) {
+            // Adicionar custom Exception (NotUpdated)
+        }
+    }
+
     public final function show(): Model
     {
         return $this->result;
