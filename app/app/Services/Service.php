@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Dtos\BaseDTO;
+use App\Dtos\DTO;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class Service
@@ -26,6 +28,15 @@ abstract class Service
         }
 
         return $this;
+    }
+
+    public final function store(DTO $dto)
+    {
+        try {
+            $this->model::create((array) $dto);
+        } catch (\Throwable $th) {
+            // Adicionar custom Exception (NotInserted)
+        }
     }
 
     public final function show(): Model

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Dtos\ClubeDTO;
+use App\Http\Requests\Clube\StoreRequest;
 use App\Services\ClubeService;
 use Illuminate\Http\Request;
 
@@ -18,9 +20,11 @@ class ClubeController extends Controller
         return $this->clubeService->paginate();
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        return $this->clubeService->store(
+            new ClubeDTO($request->clube, $request->saldo_disponivel)
+        );
     }
 
     public function show(int $id)
