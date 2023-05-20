@@ -13,7 +13,9 @@ interface Service
 
     public function show(): Collection;
 
-    public function delete();
+    public function store(DTO $dto);
 
-    public function update(DTO $dTO);
+    public function update(DTO $dto);
+    
+    public function delete();
 }

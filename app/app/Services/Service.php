@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Dtos\BaseDTO;
 use App\Dtos\DTO;
 use App\Exceptions\NotFound;
 use Illuminate\Database\Eloquent\Collection;
