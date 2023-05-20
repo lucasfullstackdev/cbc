@@ -3,7 +3,7 @@
 namespace App\Interfaces;
 
 use App\Dtos\DTO;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 interface Service
 {
@@ -11,7 +11,7 @@ interface Service
 
     public function find(int $id);
 
-    public function show(): Model;
+    public function show(): Collection;
 
     public function delete();
 

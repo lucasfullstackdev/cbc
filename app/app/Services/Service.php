@@ -4,13 +4,14 @@ namespace App\Services;
 
 use App\Dtos\BaseDTO;
 use App\Dtos\DTO;
-use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\NotFound;
+use Illuminate\Database\Eloquent\Collection;
 
 abstract class Service
 {
     protected string $model;
 
-    protected Model $result;
+    protected Collection $result;
 
     protected $limitPerPage = 20;
 
@@ -21,10 +22,10 @@ abstract class Service
 
     public final function find(int $id): self
     {
-        $this->result = $this->model::find($id);
+        $this->result = $this->model::where('id', $id)->get();
 
-        if (empty($clube)) {
-            // Adicionar custom Exception (notFound)
+        if (empty($this->result->count())) {
+            throw new NotFound($this->model);
         }
 
         return $this;
@@ -48,7 +49,7 @@ abstract class Service
         }
     }
 
-    public final function show(): Model
+    public final function show(): Collection
     {
         return $this->result;
     }
